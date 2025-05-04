@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المطور - متجر العطور الفاخرة</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- شاشة التحميل -->
+    <div class="loader">
+      <div class="loader-content">
+        <div class="logo-loader">
+          <span>المطور</span>
+        </div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <span>المطور</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#categories">الأقسام</a></li>
+          <li><a href="#products">المنتجات</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+        <div class="nav-icons">
+          <div class="search-box">
+            <input type="text" placeholder="ابحث عن منتج..." />
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="user-icon">
+            <i class="fas fa-user"></i>
+            <div class="auth-dropdown">
+              <a href="#" id="login-btn">تسجيل الدخول</a>
+              <a href="#" id="signup-btn">إنشاء حساب</a>
+            </div>
+          </div>
+          <a href="cart.html">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </div>
+          </a>
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cover Section -->
+    <section class="cover" id="home">
+      <div class="cover-overlay"></div>
+      <div class="cover-content">
+        <h1>المطور</h1>
+        <p>عطور فاخرة تجسد الأناقة والتميز</p>
+        <a href="#products" class="btn-explore">اكتشف المجموعة</a>
+      </div>
+    </section>
+
+    <!-- نموذج تسجيل الدخول -->
+    <div class="auth-modal" id="login-modal">
+      <div class="auth-content">
+        <span class="close-modal">&times;</span>
+        <h2>تسجيل الدخول</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">البريد الإلكتروني</label>
+            <input type="email" id="login-email" required />
+          </div>
+          <div class="form-group">
+            <label for="login-password">كلمة المرور</label>
+            <input type="password" id="login-password" required />
+          </div>
+          <button type="submit" class="btn-auth">تسجيل الدخول</button>
+        </form>
+        <p class="auth-switch">
+          ليس لديك حساب؟ <a href="#" id="switch-to-signup">إنشاء حساب</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- نموذج إنشاء حساب -->
+    <div class="auth-modal" id="signup-modal">
+      <div class="auth-content">
+        <span class="close-modal">&times;</span>
+        <h2>إنشاء حساب جديد</h2>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="signup-name">الاسم الكامل</label>
+            <input type="text" id="signup-name" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-email">البريد الإلكتروني</label>
+            <input type="email" id="signup-email" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-password">كلمة المرور</label>
+            <input type="password" id="signup-password" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-confirm">تأكيد كلمة المرور</label>
+            <input type="password" id="signup-confirm" required />
+          </div>
+          <button type="submit" class="btn-auth">إنشاء حساب</button>
+        </form>
+        <p class="auth-switch">
+          لديك حساب بالفعل؟ <a href="#" id="switch-to-login">تسجيل الدخول</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- الأقسام -->
+    <section id="categories" class="section">
+      <div class="container">
+        <h2 class="section-title">أقسام المتجر</h2>
+        <div class="categories-grid">
+          <div class="category-card" data-category="المطور">
+            <div class="category-image">
+              <img
+                src="https://static.sayidaty.net/styles/900_scale/public/2021-08/16-perfume_0.jpg.webp"
+                alt="المطور"
+              />
+            </div>
+            <h3>المطور</h3>
+          </div>
+          <div class="category-card" data-category="الهدايا">
+            <div class="category-image">
+              <img
+                src="https://emiratespride.com/wp-content/uploads/2023/10/Maroon-Gift-Set-scaled.webp"
+                alt="الهدايا"
+              />
+            </div>
+            <h3>الهدايا</h3>
+          </div>
+          <div class="category-card" data-category="البذور">
+            <div class="category-image">
+              <img
+                src="https://cdn.salla.sa/4nABSuISj1jGEqqTuaypBzsddoLZw9W1fCtbMSVY.png"
+                alt="البذور"
+              />
+            </div>
+            <h3>البذور</h3>
+          </div>
+          <div class="category-card" data-category="الأدعان المحلية">
+            <div class="category-image">
+              <img
+                src="https://sedralkhaleej.com/cdn/shop/files/PerfumeCrown100ml_01955.png?v=1739482369"
+                alt="الأدعان المحلية"
+              />
+            </div>
+            <h3>الأدعان المحلية</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المنتجات -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2 class="section-title">منتجاتنا</h2>
+        <div class="products-grid" id="products-container">
+          <!-- سيتم ملؤها بالمنتجات عبر JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- من نحن -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">من نحن</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="https://cdn.salla.sa/xoNmg/design/RBmP6bUcALQZHfp28IHEphPScwkWuv2aH1PRUfYU.png?rand=0.8473752978450564?rand=0.9528277262619833"
+              alt="عن المتجر"
+            />
+          </div>
+          <div class="about-text">
+            <p>
+              متجر "المطور" يقدم أجود أنواع العطور الفاخرة التي تجمع بين الأصالة
+              والحداثة. نحرص على تقديم منتجات عالية الجودة تلبي أذواق عملائنا
+              الكرام.
+            </p>
+            <p>
+              تأسس متجرنا عام 2015 ومنذ ذلك الحين ونحن نعمل على تطوير منتجاتنا
+              باستمرار لتقديم أفضل تجربة للعملاء.
+            </p>
+            <div class="about-features">
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>منتجات أصلية 100%</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>شحن سريع لجميع أنحاء المملكة</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>ضمان الجودة والرضا</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- اتصل بنا -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">اتصل بنا</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>الرياض، المملكة العربية السعودية</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <span>+966 50 123 4567</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@almutawar.com</span>
+            </div>
+            <div class="social-media">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contact-form">
+              <div class="form-group">
+                <input type="text" placeholder="اسمك" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="بريدك الإلكتروني" required />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="الموضوع" />
+              </div>
+              <div class="form-group">
+                <textarea placeholder="رسالتك" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">إرسال الرسالة</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span>المطور</span>
+            <p>عطور فاخرة تجسد الأناقة والتميز</p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="#home">الرئيسية</a></li>
+              <li><a href="#products">المنتجات</a></li>
+              <li><a href="#about">من نحن</a></li>
+              <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h3>النشرة البريدية</h3>
+            <p>اشترك ليصلك كل جديد عن منتجاتنا وعروضنا</p>
+            <form id="newsletter-form">
+              <input type="email" placeholder="بريدك الإلكتروني" required />
+              <button type="submit">اشتراك</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 المطور. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

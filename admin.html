@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة التحكم - المطور متجر العطور الفاخرة</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <!-- شاشة التحميل -->
+    <div class="loader">
+      <div class="loader-content">
+        <div class="logo-loader">
+          <span>المطور</span>
+        </div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <span>المطور</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="index.html#categories">الأقسام</a></li>
+          <li><a href="index.html#products">المنتجات</a></li>
+          <li><a href="index.html#about">من نحن</a></li>
+          <li><a href="index.html#contact">اتصل بنا</a></li>
+        </ul>
+        <div class="nav-icons">
+          <div class="user-icon">
+            <i class="fas fa-user"></i>
+            <div class="auth-dropdown">
+              <a href="#" id="logout-btn">تسجيل الخروج</a>
+            </div>
+          </div>
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- لوحة التحكم -->
+    <section class="admin-dashboard">
+      <div class="container admin-container">
+        <!-- القائمة الجانبية -->
+        <div class="admin-sidebar">
+          <h3>لوحة التحكم</h3>
+          <ul class="admin-menu">
+            <li>
+              <a href="#" class="active"
+                ><i class="fas fa-box"></i> إدارة المنتجات</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-users"></i> إدارة العملاء</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-shopping-cart"></i> الطلبات</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-chart-line"></i> الإحصائيات</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="admin-content">
+          <div class="admin-header">
+            <h2 class="admin-title">إدارة المنتجات</h2>
+            <button class="btn-add" id="add-product-btn">
+              إضافة منتج جديد
+            </button>
+          </div>
+
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>الصورة</th>
+                <th>اسم المنتج</th>
+                <th>القسم</th>
+                <th>السعر</th>
+                <th>الكمية</th>
+                <th>الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="products-table">
+              <!-- سيتم ملؤها بالمنتجات عبر JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- نموذج إضافة/تعديل المنتج -->
+    <div class="product-modal" id="product-modal">
+      <div class="product-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="product-modal-title">إضافة منتج جديد</h2>
+        <form id="product-form">
+          <input type="hidden" id="product-id" />
+          <div class="form-group">
+            <label for="product-name">اسم المنتج</label>
+            <input type="text" id="product-name" required />
+          </div>
+          <div class="form-group">
+            <label for="product-category">القسم</label>
+            <select id="product-category" required>
+              <option value="">اختر القسم</option>
+              <option value="المطور">المطور</option>
+              <option value="الهدايا">الهدايا</option>
+              <option value="البذور">البذور</option>
+              <option value="الأدعان المحلية">الأدعان المحلية</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="product-price">السعر (ر.س)</label>
+            <input
+              type="number"
+              id="product-price"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="product-stock">الكمية المتاحة</label>
+            <input type="number" id="product-stock" min="0" required />
+          </div>
+          <div class="form-group">
+            <label for="product-description">الوصف</label>
+            <textarea id="product-description" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="product-image">صورة المنتج</label>
+            <input type="file" id="product-image" accept="image/*" />
+            <div class="image-preview" id="image-preview"></div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-save">حفظ</button>
+            <button type="button" class="btn-cancel" id="cancel-product">
+              إلغاء
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- نموذج عرض تفاصيل الطلب -->
+    <div class="order-details-modal" id="order-details-modal">
+      <div class="order-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="order-details-title">
+          تفاصيل الطلب #<span id="order-id"></span>
+        </h2>
+
+        <div class="order-info">
+          <div class="order-customer">
+            <h3>معلومات العميل</h3>
+            <p><strong>الاسم:</strong> <span id="customer-name"></span></p>
+            <p>
+              <strong>البريد الإلكتروني:</strong>
+              <span id="customer-email"></span>
+            </p>
+          </div>
+
+          <div class="order-summary">
+            <h3>ملخص الطلب</h3>
+            <p><strong>تاريخ الطلب:</strong> <span id="order-date"></span></p>
+            <p><strong>الحالة:</strong> <span id="order-status"></span></p>
+            <p><strong>المجموع:</strong> <span id="order-total"></span> ر.س</p>
+          </div>
+        </div>
+
+        <div class="order-items">
+          <h3>المنتجات</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>الصورة</th>
+                <th>المنتج</th>
+                <th>السعر</th>
+                <th>الكمية</th>
+                <th>المجموع</th>
+              </tr>
+            </thead>
+            <tbody id="order-items-list">
+              <!-- سيتم ملؤها بالمنتجات -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="order-actions">
+          <button class="btn-print">طباعة الفاتورة</button>
+          <button class="btn-close">إغلاق</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

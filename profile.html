@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حسابي - المطور متجر العطور الفاخرة</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+  <body>
+    <!-- شاشة التحميل -->
+    <div class="loader">
+      <div class="loader-content">
+        <div class="logo-loader">
+          <span>المطور</span>
+        </div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <span>المطور</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="index.html#categories">الأقسام</a></li>
+          <li><a href="index.html#products">المنتجات</a></li>
+          <li><a href="index.html#about">من نحن</a></li>
+          <li><a href="index.html#contact">اتصل بنا</a></li>
+        </ul>
+        <div class="nav-icons">
+          <div class="search-box">
+            <input type="text" placeholder="ابحث عن منتج..." />
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="user-icon">
+            <i class="fas fa-user"></i>
+            <div class="auth-dropdown">
+              <a href="profile.html">حسابي</a>
+              <a href="#" id="logout-btn">تسجيل الخروج</a>
+            </div>
+          </div>
+          <a href="cart.html">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </div>
+          </a>
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- صفحة الملف الشخصي -->
+    <section class="profile-page">
+      <div class="container">
+        <div class="profile-header">
+          <h2>حسابي</h2>
+          <div class="welcome-message">
+            مرحباً بك، <span id="user-name"></span>
+          </div>
+        </div>
+
+        <div class="profile-container">
+          <!-- القائمة الجانبية -->
+          <div class="profile-sidebar">
+            <ul class="profile-menu">
+              <li class="active" data-section="profile-info">
+                <i class="fas fa-user"></i> المعلومات الشخصية
+              </li>
+              <li data-section="orders">
+                <i class="fas fa-shopping-bag"></i> طلباتي
+              </li>
+              <li data-section="addresses">
+                <i class="fas fa-map-marker-alt"></i> العناوين
+              </li>
+              <li data-section="change-password">
+                <i class="fas fa-lock"></i> تغيير كلمة المرور
+              </li>
+            </ul>
+          </div>
+
+          <!-- المحتوى الرئيسي -->
+          <div class="profile-content">
+            <!-- قسم المعلومات الشخصية -->
+            <div class="profile-section active" id="profile-info">
+              <h3>المعلومات الشخصية</h3>
+              <form id="profile-form">
+                <div class="form-group">
+                  <label for="full-name">الاسم الكامل</label>
+                  <input type="text" id="full-name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">البريد الإلكتروني</label>
+                  <input type="email" id="email" required readonly />
+                </div>
+                <div class="form-group">
+                  <label for="phone">رقم الهاتف</label>
+                  <input type="tel" id="phone" />
+                </div>
+                <button type="submit" class="btn-save">حفظ التغييرات</button>
+              </form>
+            </div>
+
+            <!-- قسم الطلبات -->
+            <div class="profile-section" id="orders">
+              <h3>طلباتي</h3>
+              <div class="orders-list" id="orders-list">
+                <!-- سيتم ملؤها بالطلبات عبر JavaScript -->
+              </div>
+            </div>
+
+            <!-- قسم العناوين -->
+            <div class="profile-section" id="addresses">
+              <h3>عناويني</h3>
+              <div class="addresses-list" id="addresses-list">
+                <div class="no-addresses">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>لا يوجد عناوين مسجلة</p>
+                  <button class="btn-add-address">إضافة عنوان جديد</button>
+                </div>
+              </div>
+
+              <!-- نموذج إضافة عنوان -->
+              <div class="address-form" id="address-form" style="display: none">
+                <h4>إضافة عنوان جديد</h4>
+                <form id="new-address-form">
+                  <div class="form-group">
+                    <label for="address-title"
+                      >عنوان للتوصيل (مثال: المنزل، العمل)</label
+                    >
+                    <input type="text" id="address-title" required />
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="city">المدينة</label>
+                      <input type="text" id="city" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="district">الحي</label>
+                      <input type="text" id="district" required />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="street">الشارع</label>
+                    <input type="text" id="street" required />
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="building">المبنى</label>
+                      <input type="text" id="building" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="apartment">الشقة</label>
+                      <input type="text" id="apartment" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="additional-info">معلومات إضافية</label>
+                    <textarea id="additional-info" rows="3"></textarea>
+                  </div>
+                  <div class="form-actions">
+                    <button type="submit" class="btn-save">حفظ العنوان</button>
+                    <button type="button" class="btn-cancel">إلغاء</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- قسم تغيير كلمة المرور -->
+            <div class="profile-section" id="change-password">
+              <h3>تغيير كلمة المرور</h3>
+              <form id="password-form">
+                <div class="form-group">
+                  <label for="current-password">كلمة المرور الحالية</label>
+                  <input type="password" id="current-password" required />
+                </div>
+                <div class="form-group">
+                  <label for="new-password">كلمة المرور الجديدة</label>
+                  <input type="password" id="new-password" required />
+                </div>
+                <div class="form-group">
+                  <label for="confirm-password"
+                    >تأكيد كلمة المرور الجديدة</label
+                  >
+                  <input type="password" id="confirm-password" required />
+                </div>
+                <button type="submit" class="btn-save">
+                  تغيير كلمة المرور
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span>المطور</span>
+            <p>عطور فاخرة تجسد الأناقة والتميز</p>
+          </div>
+          <div class="footer-links">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="index.html#products">المنتجات</a></li>
+              <li><a href="index.html#about">من نحن</a></li>
+              <li><a href="index.html#contact">اتصل بنا</a></li>
+              <li><a href="profile.html">حسابي</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h3>النشرة البريدية</h3>
+            <p>اشترك ليصلك كل جديد عن منتجاتنا وعروضنا</p>
+            <form id="newsletter-form">
+              <input type="email" placeholder="بريدك الإلكتروني" required />
+              <button type="submit">اشتراك</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 المطور. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>
